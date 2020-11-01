@@ -1,19 +1,17 @@
 const fetch = require('node-fetch')
 const parse = require('csv-parse/lib/sync')
 
-const fetchAndFilter = async (stop, direction) => {
-  const res = await fetch("http://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_TpsReel.csv")
-  const tamCSV = await res.text()
+const TAM_DATA_ENDPOINT = "http://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_TpsReel.csv"
 
+const fetchAndFilter = async (filters) => {
+  const tamCSV = await (await fetch(TAM_DATA_ENDPOINT)).text()
   const records = parse(tamCSV, {
     columns: true,
     skip_empty_lines: true,
     delimiter: ';',
   })
-
   return records.filter(r =>
-      (!stop || r.stop_name == stop.toUpperCase()) &&
-      (!direction || r.trip_headsign == direction.toUpperCase())
+    Object.keys(filters).every(key => r[key] == filters[key].toUpperCase())
   )
 }
 
@@ -21,7 +19,7 @@ module.exports = async (req, res) => {
   let result;
 
   try {
-    result = await fetchAndFilter(req.query.stop, req.query.direction)
+    result = await fetchAndFilter(req.query)
   } catch (error) {
     res.json({
       success: false,
@@ -36,5 +34,5 @@ module.exports = async (req, res) => {
 }
 
 // (async () => {
-// 	console.log(await fetchAndFilter("ANTIGONE", "MOSSON"))
+// 	console.log(await fetchAndFilter({"stop_name": "ANTIGONE", "trip_headsign": "MOSSON" }))
 // })();
