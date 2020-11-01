@@ -11,10 +11,10 @@ const fetchAndFilter = async (stop, direction) => {
     delimiter: ';',
   })
 
-  return records.filter(r => {
-    return r.stop_name == stop.toUpperCase() &&
-      r.trip_headsign == direction.toUpperCase() 
-  })
+  return records.filter(r =>
+      (stop && r.stop_name == stop.toUpperCase()) &&
+      (direction && r.trip_headsign == direction.toUpperCase())
+  )
 }
 
 module.exports = async (req, res) => {
