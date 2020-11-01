@@ -18,8 +18,10 @@ const fetchAndFilter = async (stop, direction) => {
 }
 
 module.exports = async (req, res) => {
+  let result;
+
   try {
-    const result = await fetchAndFilter(req.query.stop, req.query.direction)
+    result = await fetchAndFilter(req.query.stop, req.query.direction)
   } catch (error) {
     res.json({
       success: false,
