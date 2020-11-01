@@ -12,8 +12,8 @@ const fetchAndFilter = async (stop, direction) => {
   })
 
   return records.filter(r =>
-      (stop && r.stop_name == stop.toUpperCase()) &&
-      (direction && r.trip_headsign == direction.toUpperCase())
+      (!stop || r.stop_name == stop.toUpperCase()) &&
+      (!direction || r.trip_headsign == direction.toUpperCase())
   )
 }
 
