@@ -1,0 +1,23 @@
+{
+  "name": "montpellier-tam-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/query.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aslafy-z/montpellier-tam-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aslafy-z/montpellier-tam-api/issues"
+  },
+  "homepage": "https://github.com/aslafy-z/montpellier-tam-api#readme",
+  "dependencies": {
+    "csv-parse": "^4.12.0",
+    "node-fetch": "^2.6.1"
+  }
+}
