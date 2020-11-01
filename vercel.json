@@ -1,6 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/(.*)", "status": 302, "headers": { "Location": "https://github.com/aslafy-z/montpellier-tam-api" }}
+    { "src": "/", "status": 302, "headers": { "Location": "https://github.com/aslafy-z/montpellier-tam-api" }}
   ]
 }
