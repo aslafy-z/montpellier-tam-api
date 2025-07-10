@@ -18,6 +18,6 @@
   "homepage": "https://github.com/aslafy-z/montpellier-tam-api#readme",
   "dependencies": {
     "csv-parse": "^6.0.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.0.0"
   }
 }
