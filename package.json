@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aslafy-z/montpellier-tam-api#readme",
   "dependencies": {
-    "csv-parse": "^4.12.0",
+    "csv-parse": "^6.0.0",
     "node-fetch": "^2.6.1"
   }
 }
