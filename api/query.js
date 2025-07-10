@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const parse = require('csv-parse/lib/sync')
+const parse = require('csv-parse/sync')
 
 // Vercel Serverless Function Behavior:
 // This in-memory cache is per function instance.
